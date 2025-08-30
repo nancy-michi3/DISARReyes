@@ -8,7 +8,7 @@
     <style>
         /* Favicon styling for browsers that support it */
         link[rel="icon"] {
-            border-radius: 35%;
+            border-radius: 50%;
         }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,7 +50,7 @@
     <header class="bg-white shadow-lg fixed w-full top-1 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
+                <a href="#inicio" class="flex items-center space-x-3 hover:opacity-80 transition">
                     <img src="https://res.cloudinary.com/dh7zke3v6/image/upload/v1756569411/disasrreyes_fpqpgj.jpg" 
                          alt="DISAR REYES Logo" 
                          class="h-12 w-auto rounded-lg"
@@ -62,7 +62,7 @@
                         <h1 class="text-2xl font-bold text-gray-800">DISAR REYES</h1>
                         <p class="text-sm text-orange-600">Diseño & Construcción</p>
                     </div>
-                </div>
+                </a>
                 <nav class="hidden md:flex space-x-6">
                     <a href="#inicio" class="text-gray-700 hover:text-orange-600 transition">Inicio</a>
                     <a href="#servicios" class="text-gray-700 hover:text-orange-600 transition">Servicios</a>
@@ -777,7 +777,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/523521076164" class="floating-whatsapp bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg">
+    <a href="https://wa.me/523521076164?text=Hola,%20estoy%20viendo%20tus%20proyectos%20en%20tu%20página%20web%20y%20me%20interesaría%20conocer%20más,%20¿podemos%20hablar?" class="floating-whatsapp bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
@@ -856,7 +856,18 @@ Descripción: ${descripcion || '[Pendiente]'}
             
             // Codificar el mensaje para URL
             const mensajeCodificado = encodeURIComponent(mensaje);
-            const whatsappUrl = `https://wa.me/523521076164?text=${mensajeCodificado}`;
+            
+            // Detectar si es móvil o desktop
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            let whatsappUrl;
+            if (isMobile) {
+                // Para móviles, usar wa.me que abre la app
+                whatsappUrl = `https://wa.me/523521076164?text=${mensajeCodificado}`;
+            } else {
+                // Para desktop, usar web.whatsapp.com
+                whatsappUrl = `https://web.whatsapp.com/send?phone=523521076164&text=${mensajeCodificado}`;
+            }
             
             // Abrir WhatsApp
             window.open(whatsappUrl, '_blank');
@@ -887,5 +898,6 @@ Descripción: ${descripcion || '[Pendiente]'}
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977614090607a9ca',t:'MTc1NjU3NTY3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97761f19c6cef863',t:'MTc1NjU3NjEzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
